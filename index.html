@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>一榫一卯，拆解一座城｜AI 传播优化方案</title>
+    <meta
+      name="description"
+      content="山东青年政治学院春秋蝉队作品：以山东手造·鲁班锁为切口的 AI 传播优化方案。"
+    />
+    <style>
+      :root {
+        --ink: #171717;
+        --paper: #f4f2ed;
+        --card: #ffffff;
+        --muted: #66645f;
+        --line: #d9d5cc;
+        --accent: #c84b31;
+        --accent-soft: #f8e8e2;
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 85% 8%, rgba(200, 75, 49, 0.08), transparent 26rem),
+          var(--paper);
+        font-family:
+          "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .accent-bar {
+        height: 8px;
+        background: var(--accent);
+      }
+
+      .wrap {
+        width: min(calc(100% - 40px), var(--max));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 34px 0 72px;
+      }
+
+      .topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 72px;
+        color: var(--muted);
+        font-size: 14px;
+        letter-spacing: 0.04em;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.58);
+        white-space: nowrap;
+      }
+
+      .status::before {
+        width: 7px;
+        height: 7px;
+        content: "";
+        background: var(--accent);
+      }
+
+      .kicker {
+        margin: 0 0 16px;
+        color: var(--accent);
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        max-width: 900px;
+        margin: 0;
+        font-size: clamp(54px, 9vw, 116px);
+        font-weight: 900;
+        letter-spacing: -0.075em;
+        line-height: 0.96;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      .lead {
+        max-width: 780px;
+        margin: 34px 0 0;
+        font-size: clamp(18px, 2.2vw, 25px);
+        font-weight: 600;
+        line-height: 1.55;
+      }
+
+      .intro {
+        max-width: 850px;
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 36px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 20px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          color 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .button.secondary:hover {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      main {
+        padding-bottom: 72px;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.42);
+      }
+
+      .fact {
+        min-height: 160px;
+        padding: 28px 24px;
+        border-right: 1px solid var(--line);
+      }
+
+      .fact:last-child {
+        border-right: 0;
+      }
+
+      .fact strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-size: 26px;
+        line-height: 1.2;
+      }
+
+      .fact span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 74px 0 20px;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(30px, 4vw, 48px);
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+      }
+
+      .section-head p {
+        max-width: 420px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .strategy-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .strategy {
+        padding: 28px;
+        background: var(--card);
+        border: 1px solid var(--line);
+      }
+
+      .strategy b {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--accent);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+      }
+
+      .strategy h3 {
+        margin: 0 0 10px;
+        font-size: 23px;
+        line-height: 1.25;
+      }
+
+      .strategy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .viewer-shell {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--card);
+      }
+
+      .viewer-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 58px;
+        padding: 0 18px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .viewer-bar strong {
+        color: var(--ink);
+      }
+
+      iframe {
+        display: block;
+        width: 100%;
+        height: min(76vh, 880px);
+        border: 0;
+        background: #d9d9d9;
+      }
+
+      .note {
+        margin-top: 18px;
+        padding: 18px 20px;
+        border-left: 4px solid var(--accent);
+        background: var(--accent-soft);
+        font-size: 14px;
+      }
+
+      footer {
+        margin-top: 72px;
+        padding: 28px 0 40px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 30px;
+      }
+
+      .footer-row strong {
+        color: var(--ink);
+      }
+
+      @media (max-width: 860px) {
+        .facts,
+        .strategy-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .fact:nth-child(2) {
+          border-right: 0;
+        }
+
+        .fact:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+      }
+
+      @media (max-width: 620px) {
+        .wrap {
+          width: min(calc(100% - 28px), var(--max));
+        }
+
+        header {
+          padding-top: 22px;
+        }
+
+        .topline {
+          align-items: flex-start;
+          flex-direction: column;
+          margin-bottom: 54px;
+        }
+
+        h1 {
+          font-size: clamp(52px, 16vw, 82px);
+        }
+
+        .facts,
+        .strategy-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .fact {
+          min-height: auto;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .fact:last-child {
+          border-bottom: 0;
+        }
+
+        .section-head,
+        .footer-row {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        iframe {
+          height: 68vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accent-bar"></div>
+    <header>
+      <div class="wrap">
+        <div class="topline">
+          <span>赛道二 · AI 传播优化应用</span>
+          <span class="status">拟自主选题，待组委会审核备案</span>
+        </div>
+        <p class="kicker">山东手造 · 鲁班锁青年传播</p>
+        <h1>
+          <span>一榫一卯，</span>
+          <span>拆解一座城</span>
+        </h1>
+        <p class="lead">
+          把“精巧的山东符号”，变成一次愿意亲手完成的文化体验。
+        </p>
+        <p class="intro">
+          面向 18—30 岁文化探索者，以结构解密、AI 数字员工答疑、主题挑战与体验预约形成传播闭环，让文化体验从“看见”走向“参与”。
+        </p>
+        <div class="actions">
+          <a class="button" href="proposal.pdf" target="_blank" rel="noopener">
+            在线浏览方案 PDF
+          </a>
+          <a class="button secondary" href="proposal.pptx" download>
+            下载演示 PPT
+          </a>
+          <a class="button secondary" href="competition-attachments.zip" download>
+            下载完整附件
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="facts" aria-label="作品概览">
+        <div class="fact">
+          <strong>18 页</strong>
+          <span>传播优化方案与演示 PPT</span>
+        </div>
+        <div class="fact">
+          <strong>4 步闭环</strong>
+          <span>看懂、做出、分享、到场</span>
+        </div>
+        <div class="fact">
+          <strong>RAG</strong>
+          <span>企业知识库与“鲁小卯”数字员工</span>
+        </div>
+        <div class="fact">
+          <strong>可测量</strong>
+          <span>曝光、互动、UGC、问答与 AI 搜索</span>
+        </div>
+      </section>
+
+      <div class="section-head">
+        <h2>从文化符号到参与体验</h2>
+        <p>AI 负责降低理解成本、放大内容产能和识别需求信号；人负责事实、文化、权利与价值判断。</p>
+      </div>
+
+      <section class="strategy-grid" aria-label="方案亮点">
+        <article class="strategy">
+          <b>01 / 创意</b>
+          <h3>一榫一卯，合而为鲁</h3>
+          <p>以 60 秒小型解谜承接文化解释，把“是否会拼”转化为可参与、可分享的挑战。</p>
+        </article>
+        <article class="strategy">
+          <b>02 / AI</b>
+          <h3>“鲁小卯”数字员工</h3>
+          <p>连接知识问答、互动导览、创作辅助、评论洞察与高风险转人工，回答附来源、会拒答。</p>
+        </article>
+        <article class="strategy">
+          <b>03 / 验证</b>
+          <h3>传播与转化同轨监测</h3>
+          <p>设置内容漏斗、UGC、预约转化和 AI 搜索占位指标，区分建议目标与真实数据。</p>
+        </article>
+      </section>
+
+      <div class="section-head">
+        <h2>在线浏览作品</h2>
+        <p>可直接在网页中查看 PDF。若浏览器不支持内嵌预览，请点击上方按钮打开原文件。</p>
+      </div>
+
+      <section class="viewer-shell">
+        <div class="viewer-bar">
+          <strong>传播优化方案 · PDF</strong>
+          <a href="proposal.pdf" target="_blank" rel="noopener">全屏打开</a>
+        </div>
+        <iframe
+          src="proposal.pdf#view=FitH"
+          title="一榫一卯，拆解一座城传播优化方案 PDF"
+          loading="lazy"
+        ></iframe>
+      </section>
+
+      <div class="note">
+        AI 工具：OpenAI Codex（GPT-5），用于辅助洞察、文案与版式；内容已由团队进行人工核验与修订。方案中的业务数值均为建议目标或验收指标，不代表已发生的传播数据。
+      </div>
+
+      <footer>
+        <div class="footer-row">
+          <div>
+            <strong>山东青年政治学院 · 春秋蝉队</strong><br />
+            赛道二｜AI 传播优化应用｜2026 年 11 月
+          </div>
+          <div>
+            <a href="source-verification.pdf" target="_blank" rel="noopener">
+              查看权威来源与权利核验表
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
